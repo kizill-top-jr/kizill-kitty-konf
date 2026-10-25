@@ -1,0 +1,61 @@
+# Kizill's Kitty Configuration
+
+A highly customized, aesthetic configuration for the [Kitty terminal](https://sw.kovidgoyal.net/kitty/), tailored for a seamless Linux desktop experience. It features dynamic Pywal colors, glassmorphism effects, powerline-style tabs, and smart Nerd Font icons.
+
+## Features
+
+*   **Glassmorphism:** Semi-transparent background with optimized blur (`background_opacity`, `background_blur`).
+*   **Pywal Integration:** Automatically adapts colors to match your current desktop wallpaper.
+*   **Powerline Tabs:** Sleek, slanted tabs at the bottom of the window.
+*   **Smart Cursor:** Smooth beam cursor with a customizable trailing effect.
+*   **Hack Nerd Font:** Includes custom tab icons based on the running process (Neovim, htop, python, etc.).
+*   **Ergonomic Keybindings:** Comfortable shortcuts for window management, tabs, and font resizing.
+
+## Screenshots
+
+| Glassmorphism & Layout | Tabs & Fastfetch |
+| :---: | :---: |
+| ![Preview 1](screen/preview.png) | ![Preview 2](screen/preview_1.png) |
+
+| Neovim & Code | System Monitoring |
+| :---: | :---: |
+| ![Preview 3](screen/preview_2.png) | ![Preview 4](screen/preview_3.png) |
+
+## Dependencies
+
+Before installing, make sure you have the following packages:
+
+*   **Kitty:** `emerge x11-terms/kitty` (or your distro's package manager).
+*   **Font:** **Hack Nerd Font** (required for icons to render correctly).
+*   **Pywal (Optional but recommended):** `pip install pywal` (or `emerge app-misc/pywal`) for dynamic colors.
+
+## Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/kizill-top-jr/kizill-kitty-konf.git
+   cd kizill-kitty-konf
+   ```
+   Backup your old config (just in case):
+   bash
+   ```bash
+   cp ~/.config/kitty/kitty.conf ~/.config/kitty/kitty.conf.bak
+   ```
+  Copy the new configuration:
+  ```bash
+  cp kitty.conf ~/.config/kitty/
+  ```
+Color Scheme (Pywal)
+
+The config includes a line that pulls colors from your Pywal cache:
+```ini
+include ~/.cache/wal/colors-kitty.conf
+```
+If you use Pywal:
+
+Just run wal -i /path/to/your/wallpaper.jpg and restart Kitty. The colors will apply automatically.
+If you DON'T use Pywal:
+
+If you don't have Pywal installed, Kitty will throw an error on startup. Open ~/.config/kitty/kitty.conf and either delete or comment out the include line. Then define your own foreground, background, and color0 through color15 manually.
+
+Created by Kizill_TOP
